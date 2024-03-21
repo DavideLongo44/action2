@@ -5,7 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "nodemon server.js",
-        "test": "npx jest",
+        "test": "cypress run",
         "start-prod": "npm start"
     },
     "dependencies": {
