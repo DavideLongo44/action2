@@ -23,6 +23,9 @@ jobs:
 
       - name: Install Cypress
         run: npm install cypress --save-dev
+
+      - name: Start application
+        run: npm run start
         
       - name: Run Cypress tests
         run: npm run test:e2e
