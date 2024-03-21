@@ -5,7 +5,7 @@
     "main": "server.js",
     "scripts": {
         "start": "nodemon server.js",
-        "test": "cypress run",
+        "test:e2e": "cypress run",
         "start-prod": "npm start"
     },
     "dependencies": {
