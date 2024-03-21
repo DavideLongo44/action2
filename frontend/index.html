@@ -10,17 +10,40 @@
     <h1>BMI Rechner</h1>
 
     <div>
-        <label for="weight"> gewicht (in kg):</label>
+        <label for="weight">Gewicht (in kg):</label>
         <input type="number" id="weight">
         <span id="show_weight"></span>
     </div>
     <div>
-        <label for="weight"> Groesse (in cm):</label>
+        <label for="height">Größe (in cm):</label>
         <input type="number" id="height">
         <span id="show_height"></span>
     </div>
-    <div id="resoult"></div>
-    
-    <script src="main.js"></script>
+    <div>
+        <button onclick="calculateBMI()">Berechne</button>
+    </div>
+    <div id="result"></div>
+     
+    <script>
+        function calculateBMI() {
+            var weightInput = parseFloat(document.getElementById("weight").value);
+            var heightInput = parseFloat(document.getElementById("height").value);
+
+            if (isNaN(weightInput) || isNaN(heightInput) || weightInput <= 0 || heightInput <= 0) {
+                document.getElementById("result").innerHTML = "Bitte geben Sie gültige Werte für Gewicht und Größe ein.";
+                return;
+            }
+
+            var heightInMeters = heightInput / 100; // Convert height to meters
+            var bmi = weightInput / (heightInMeters * heightInMeters);
+            var result = document.getElementById("result");
+
+            if (!isNaN(bmi)) {
+                result.innerHTML = "Dein BMI beträgt: " + bmi.toFixed(2);
+            } else {
+                result.innerHTML = "Bitte geben Sie gültige Werte ein.";
+            }
+        }
+    </script>
 </body>
 </html>
